@@ -1,0 +1,17 @@
+<Html>
+<head>
+<title>🔋 Basura electrónica: ¿Y mi compu vieja? 🔋 </title>
+<link rel="stylesheet" type="text/css" href="3reciclaje css.css">
+</head>
+<body>
+<H1>🔋 Basura electrónica: ¿Y mi compu vieja?🔋</H1>
+<H2> Mira, si tienes un teléfono roto o una compu que ya no usas, eso no va directo al basurero como si nada. </H2>
+<H2>✨Muchos de esos aparatos tienen cosas tóxicas que pueden dañar el suelo o el agua, y también materiales valiosos que se pueden recuperar.✨</H2>
+<H2>🤭Por eso es tan importante llevarlos a puntos especiales de reciclaje electrónico. Así cuidamos el planeta y también se pueden reutilizar piezas para otros dispositivos.🤭</H2>
+
+<div align="center">
+  <div style="border: 5px solid #4CAF50; border-radius: 15px; background-color: #eaffea; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: inline-block;">
+    <img src="reciclaje electronico3.jpg" width="1570" height="1000">
+  </div>
+</div>
+</html>

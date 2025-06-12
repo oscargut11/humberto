@@ -1,0 +1,20 @@
+<Html>
+<head>
+<title>🌻 Las 3R: Reducir, Reutilizar y Reciclar 🌻</title>
+<link rel="stylesheet" type="text/css" href="4reciclaje css.css">
+</head>
+<body>
+<H1>🌻 Las 3R: Reducir, Reutilizar y Reciclar 🌻</H1>
+<H2> Esto es como la regla de oro del cuidado ambiental. Las 3R ayudan a reducir la cantidad de basura que generamos. </H2>
+<H3>Te explico: </H3>
+<H3>* 📄Reducir: evitar cosas innecesarias. Por ejemplo, no imprimir si puedes leer en digital, o no comprar cosas que no necesitas.📄 </H3>
+<H3>* 🌟Reutilizar: darles una segunda vida a las cosas. Como usar una caja como organizador o un frasco como portalápices.🌟</H3>
+<H3>* 🚮Reciclar: separar correctamente lo que ya no sirve para que pueda transformarse en algo nuevo.🚮 </H3>
+<H2>Si aplicas las 3, estás ayudando muchísimo al planeta.</H2>
+
+<div align="center">
+  <div style="border: 5px solid #4CAF50; border-radius: 15px; background-color: #eaffea; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: inline-block;">
+    <img src="reciclaje electronico4.jpg" width="1570" height="1200">
+  </div>
+</div>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atrapa la Basura ♻</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #e0f7e9;
+    }
+    canvas {
+      background: #ffffff;
+      border: 4px solid #4caf50;
+      display: block;
+      margin: 20px auto;
+    }
+    h1 {
+      color: #4caf50;
+    }
+    #score {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    #message {
+      font-size: 22px;
+      margin: 10px;
+      height: 28px;
+      color: #4caf50;
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 16px;
+      margin: 5px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #43a047;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗑 Atrapa la Basura</h1>
+  <div id="score">Puntos: 0</div>
+  <div id="message"></div>
+  <canvas id="gameCanvas" width="400" height="500"></canvas>
+  <div>
+    <button onclick="startGame(2)">Modo Fácil</button>
+    <button onclick="startGame(4)">Modo Normal</button>
+    <button onclick="startGame(6)">Modo Difícil</button>
+    <button onclick="startGame(currentSpeed)">Reiniciar</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const basuraIconos = [
+      "🔋", "💻", "📱", "🧴", "🥤", "🍌", "🍎", "🎧", "📷", "📠",
+      "🖨", "🔌", "🔧", "🗑", "📀", "📦", "🕹", "🧹", "📺", "💡",
+      "📚", "🧻", "🪫", "🔍", "🧊", "🔨", "📄", "🪟", "🛢", "📂",
+      "🖱", "🗜", "📊", "🧼", "🪣", "🧽", "📑", "🎮", "🪙"
+    ];
+
+    const peligrososIconos = [
+      "💣", "🔥", "☠", "⚠", "💥", "🚫", "❌", "🛑"
+    ];
+
+    let basura = [];
+    let bote = { x: 180, y: 460, width: 40, height: 20 };
+    let puntos = 0;
+    let velocidad = 2;
+    let juegoActivo = true;
+    let currentSpeed = 2;
+
+    let leftPressed = false;
+    let rightPressed = false;
+    let basuraInterval;
+
+    function nuevaBasura() {
+      const esPeligroso = Math.random() < 0.25;
+      let icono;
+      let tipo;
+      if (esPeligroso) {
+        icono = peligrososIconos[Math.floor(Math.random() * peligrososIconos.length)];
+        tipo = "peligroso";
+      } else {
+        icono = basuraIconos[Math.floor(Math.random() * basuraIconos.length)];
+        tipo = "basura";
+      }
+      const x = Math.random() * (canvas.width - 30);
+      basura.push({ x, y: -30, icono, tipo });
+    }
+
+    function dibujarBote() {
+      ctx.fillStyle = "#4caf50";
+      ctx.fillRect(bote.x, bote.y, bote.width, bote.height);
+    }
+
+    function dibujarBasura() {
+      basura.forEach(item => {
+        ctx.font = "28px Arial";
+        ctx.fillStyle = (item.tipo === "basura") ? "green" : "red";
+        ctx.fillText(item.icono, item.x, item.y);
+      });
+    }
+
+    function moverBasura() {
+      basura.forEach(item => item.y += velocidad);
+    }
+
+    function detectarColisiones() {
+      const messageEl = document.getElementById("message");
+      basura = basura.filter(item => {
+        // Colisión con el bote
+        if (
+          item.y + 20 >= bote.y &&
+          item.x >= bote.x - 10 &&
+          item.x <= bote.x + bote.width + 10
+        ) {
+          if (item.tipo === "basura") {
+            puntos++;
+            messageEl.style.color = "green";
+            messageEl.textContent = "¡Basura reciclada! +1 punto";
+          } else {
+            juegoActivo = false;
+            messageEl.style.color = "red";
+            messageEl.textContent = "¡Atrapas basura peligrosa! Perdiste.";
+          }
+          document.getElementById("score").textContent = "Puntos: " + puntos;
+          return false;
+        }
+
+        // Si el objeto baja del canvas
+        if (item.y > canvas.height) {
+          if (item.tipo === "basura") {
+            juegoActivo = false;
+            messageEl.style.color = "red";
+            messageEl.textContent = "¡Dejaste caer basura! Perdiste.";
+          }
+          // Para ambos casos eliminamos el objeto que se fue
+          return false;
+        }
+
+        return true;
+      });
+    }
+
+    function moverBote() {
+      // Incrementé velocidad a 7 para que el bote se mueva más rápido
+      if (leftPressed && bote.x > 0) bote.x -= 7;
+      if (rightPressed && bote.x < canvas.width - bote.width) bote.x += 7;
+    }
+
+    function actualizar() {
+      if (!juegoActivo) {
+        ctx.fillStyle = "red";
+        ctx.font = "30px Arial";
+        ctx.fillText("¡Juego Terminado!", 120, 250);
+        clearInterval(basuraInterval);
+        return;
+      }
+
+      moverBote();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dibujarBote();
+      dibujarBasura();
+      moverBasura();
+      detectarColisiones();
+      requestAnimationFrame(actualizar);
+    }
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft") leftPressed = true;
+      if (e.key === "ArrowRight") rightPressed = true;
+    });
+
+    document.addEventListener("keyup", e => {
+      if (e.key === "ArrowLeft") leftPressed = false;
+      if (e.key === "ArrowRight") rightPressed = false;
+    });
+
+    function startGame(vel) {
+      velocidad = vel;
+      currentSpeed = vel;
+      basura = [];
+      bote.x = 180;
+      puntos = 0;
+      juegoActivo = true;
+      document.getElementById("score").textContent = "Puntos: 0";
+      document.getElementById("message").textContent = "";
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      clearInterval(basuraInterval);
+      basuraInterval = setInterval(() => {
+        if (juegoActivo) nuevaBasura();
+      }, 600);
+
+      actualizar();
+    }
+
+    startGame(4); // iniciar modo normal por defecto
+  </script>
+</body>
+</html>

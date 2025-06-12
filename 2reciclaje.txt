@@ -1,0 +1,28 @@
+<Html>
+<head>
+<title>🧃 ¿Qué podemos reciclar? 🧃</title>
+<link rel="stylesheet" type="text/css" href="1reciclaje css.css">
+</head>
+<body>
+<H1>🧃 ¿Qué podemos reciclar? 🧃</H1>
+<H2> Todos los días usamos cosas que podríamos reciclar sin darnos cuenta. </H2>
+<H3>😻Como los siguientes ejemplos:😻</H3>
+
+<H3>* Papel y cartón: cuadernos, cajas, papel de regalo. </H3>
+
+<H3>* Plásticos: botellas de agua, envases, bolsas. </H3>
+
+<H3>* Vidrio: frascos de mermelada, botellas. </H3>
+
+<H3>* Metales: latas de refresco, tapas de frascos. </H3>
+
+<H3>* Basura electrónica: teléfonos viejos, cargadores, teclados, computadoras. </H3>
+
+
+<H2>🚯La clave está en separarlos bien y no mezclarlos con basura orgánica. ¡Eso ya hace una gran diferencia!🚯</H2>
+<div align="center">
+  <div style="border: 5px solid #4CAF50; border-radius: 15px; background-color: #eaffea; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: inline-block;">
+    <img src="reciclaje electronico2.jpg" width="1570" height="1000">
+  </div>
+</div>
+</html>

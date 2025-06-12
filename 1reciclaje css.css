@@ -1,0 +1,30 @@
+H1 {font-family:"Arial Black", Arial;
+font-size: 90px;
+text-align: center;
+color: black;
+text-shadow:
+-1px -1px 0 white,
+ 1px -1px 0 white,
+-1px  1px 0 white;
+}
+H2 {font-family:"Arial Black", Arial;
+font-size: 50px;
+text-align: center;
+color: Black;
+text-shadow:
+-1px -1px 0 white,
+ 1px -1px 0 white,
+-1px  1px 0 white;
+}
+H3 {font-family:"Arial Black", Arial;
+font-size: 45px;
+text-align: justify;
+color: Black;
+text-shadow:
+-1px -1px 0 white,
+ 1px -1px 0 white,
+-1px  1px 0 white;
+}
+body {
+background-color: #ade4bf;
+}

@@ -1,0 +1,135 @@
+<Html>
+<head>
+<title> 🌐 Proyecto PAE en Conalep 🌐 </title>
+<link rel="stylesheet" type="text/css" href="6reciclaje css.css">
+</head>
+<body>
+<H1>🌐 Proyecto PAE en Conalep  🌐 </H1>
+<H2> En nuestro plantel Ixtapaluca 236 se llevo a cabo una actividad de reciclaje de dispositivos electrónicos el día 21 de mayo donde se les trataría de dar una segunda oportunidad, ya sea creando algo lindo y útil como reutilizar componentes en buen estado</H2>
+<H2>🌍 Reciclar es muy importante, si lo haces nos estarías ayudando a cuidar el planeta 🌍</H2>
+
+<H2>📥¡VIVA EL RECICLAJE!📥</H2>
+<style>
+  .center-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1600px;
+  }
+
+  .image-container {
+    border: 5px solid #4CAF50;
+    border-radius: 15px;
+    background-color: #eaffea;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 300px; /* Fuerza altura uniforme */
+    object-fit: cover; /* Recorta suavemente */
+    border-radius: 10px;
+    display: block;
+  }
+</style>
+
+<div class="center-wrapper">
+  <div class="grid-wrapper">
+    <div class="image-container"><img src="cona1.jpg" alt="Imagen cona1"></div>
+    <div class="image-container"><img src="cona2.jpg" alt="Imagen cona2"></div>
+    <div class="image-container"><img src="cona3.jpg" alt="Imagen cona3"></div>
+    <div class="image-container"><img src="cona4.jpg" alt="Imagen cona4"></div>
+    <div class="image-container"><img src="cona5.jpg" alt="Imagen cona5"></div>
+    <div class="image-container"><img src="cona6.jpg" alt="Imagen cona6"></div>
+    <div class="image-container"><img src="cona7.jpg" alt="Imagen cona7"></div>
+    <div class="image-container"><img src="cona8.jpg" alt="Imagen cona8"></div>
+    <div class="image-container"><img src="cona9.jpg" alt="Imagen cona9"></div>
+  </div>
+</div>
+
+<style>
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .video-container {
+    width: 500px;
+    height: 281px;
+    border: 5px solid #4CAF50;
+    border-radius: 15px;
+    background-color: #eaffea;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: black;
+    cursor: pointer;
+  }
+</style>
+
+<div class="video-wrapper">
+  <div class="video-container">
+    <video src="cona10.mp4" controls></video>
+  </div>
+  <div class="video-container">
+    <video src="cona11.mp4" controls></video>
+  </div>
+  <div class="video-container">
+    <video src="cona12.mp4" controls></video>
+  </div>
+  <div class="video-container">
+    <video src="cona13.mp4" controls></video>
+  </div>
+</div>
+
+<script>
+  const videos = document.querySelectorAll('.video-container video');
+
+  videos.forEach(video => {
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener('dblclick', () => {
+      if (!document.fullscreenElement) {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+  });
+</script>
+</div></html>
+
+
